@@ -101,4 +101,7 @@ section input {
   section input {
     width: 60%;
   }
+  .list{
+    height: 56vh;
+  }
 }
