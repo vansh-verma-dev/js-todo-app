@@ -60,4 +60,3 @@ function removeFromLocalStorage(task) {
     todo = todo.filter(item => item !== task);
     localStorage.setItem('item', JSON.stringify(todo));
 }
-console.log('welcome');
