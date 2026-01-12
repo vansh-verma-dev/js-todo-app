@@ -1,24 +1,62 @@
 const input = document.getElementById("input");
 const list = document.querySelector(".list");
-function add() {
- if(input.value === ""){
-    alert('Please enter a task !')
-    return;
- }
- div = document.createElement("Div"); // create div 
-  div.className = "details"  // div ki class
-  ptag = document.createElement("p"); // create p tage
-  deletebtn = document.createElement('Button'); // create button
-  deletebtn.className = "deltbtn"
-  deletebtn.innerHTML = `<i class="fa-solid fa-trash"></i>` // button ka name
-  list.append(div);  // list ke ander div 
-  div.append(ptag , deletebtn);  // sbhi div ke ander ptage orr delete btn
-   ptag.innerText = input.value ;   // input value p tage me show 
 
-
-   deletebtn.addEventListener('click',()=>{
-    div.remove();
-    alert('delete your details');
-})
+// Page load hone par localStorage se tasks load karna
+window.onload = function() {
+    let todo = JSON.parse(localStorage.getItem('item')) || [];
+    todo.forEach(task => {
+        createTask(task);
+    });
 }
+
+function add() {
+    const display = input.value.trim();
+    if(display === "") {
+        alert("Please enter a task!");
+        return;
+    }
+
+    createTask(display);
+
+    // localStorage me save karna
+    let todo = JSON.parse(localStorage.getItem('item')) || [];
+    todo.push(display);
+    localStorage.setItem('item', JSON.stringify(todo));
+
+    input.value = "";
+}
+
  
+function createTask(display) {
+    const div = document.createElement("div");
+    div.className = "details";
+
+    const ptag = document.createElement("p");
+    ptag.innerText = display;
+
+    const deletebtn = document.createElement("button");
+    deletebtn.className = "deltbtn";
+    deletebtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+
+    div.append(ptag, deletebtn);
+    list.append(div);
+
+   
+    deletebtn.addEventListener("click", () => {
+    const confirmDelete = confirm("delete ?");
+
+    if(confirmDelete) {    
+        div.remove();     
+        removeFromLocalStorage(display);  
+    } else {
+         
+    }
+});
+}
+
+// localStorage se delete karne ka function
+function removeFromLocalStorage(task) {
+    let todo = JSON.parse(localStorage.getItem('item')) || [];
+    todo = todo.filter(item => item !== task);
+    localStorage.setItem('item', JSON.stringify(todo));
+}
