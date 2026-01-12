@@ -7,15 +7,15 @@ body{
     width: 100%;
     justify-content: center;
     display: flex;
-    background-color: aliceblue;
+    background-color: rgb(255, 255, 255);
     align-items: center;
 }
 section{
     height: 300px;
     width: 490px;
-    border: 2px solid gray;
+    border: 2px solid rgb(238, 238, 238);
     text-align: center;
-background-color: white;
+background-color: rgb(238, 238, 238);
 border-radius: 20px;
 }
 section input{
@@ -25,9 +25,51 @@ section input{
     font-size: 20px;
     border: none;
     border-bottom: 1px solid black;
+    background-color: transparent;
 }
-section button{
-    width: 20%;
-    height: 45px;
-    border: none;
+.add{
+     padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+ 
+
+.add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(34, 197, 94, 0.4);
+}
+
+.add:active {
+  transform: scale(0.96);
+}
+.list{
+    overflow-y: scroll;
+    background-color:transparent;
+    height: 20vh;
+    margin-top: 20px;
+}
+.list::-webkit-scrollbar{
+    display: block;
+}
+.details{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    padding-left: 20px;
+    font-size: 20px;
+    height: 30px;
+    margin-left: 5px;
+}
+.details button{
+   border: none;
+   background-color: transparent;
+    font-size: 20px;
 }
