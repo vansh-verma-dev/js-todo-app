@@ -67,23 +67,31 @@ section input {
 }
 .details {
   display: flex;
-  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
   margin-top: 10px;
-  background-color: rgb(255, 255, 255);
-  align-items: center;
-  padding-left: 20px;
+  background-color: #fff;
+  padding: 10px 10px 10px 20px;
   font-size: 20px;
-  height: 40px;
   margin-left: 5px;
-  padding-right: 10px;
   box-shadow: 0 5px 5px gray;
 }
-.details button {
-  border: none;
-  background-color: transparent;
-  font-size: 25px;
-  color: #6b7280;
+
+.details p {
+  flex: 1;
+  min-width: 0;              /* ⭐ MOST IMPORTANT LINE */
+  word-break: break-word;    /* ⭐ force break */
+  overflow-wrap: anywhere;   /* ⭐ modern fix */
 }
+
+.details button {
+  flex-shrink: 0;            /* icon kabhi squeeze na ho */
+  border: none;
+  background: transparent;
+  font-size: 25px;
+  cursor: pointer;
+}
+
 .details button:hover {
   color: #ff0101;
 }
