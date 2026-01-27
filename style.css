@@ -79,13 +79,13 @@ section input {
 
 .details p {
   flex: 1;
-  min-width: 0;              /* ⭐ MOST IMPORTANT LINE */
-  word-break: break-word;    /* ⭐ force break */
-  overflow-wrap: anywhere;   /* ⭐ modern fix */
+  min-width: 0;               
+ text-align: left;
+ padding-left: 10px;
 }
 
 .details button {
-  flex-shrink: 0;            /* icon kabhi squeeze na ho */
+  flex-shrink: 0;             
   border: none;
   background: transparent;
   font-size: 25px;
